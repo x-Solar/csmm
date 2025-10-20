@@ -1,0 +1,19 @@
+name: CD Staging CSMM
+
+on:
+  workflow_dispatch:
+env:
+  IMAGE_NAME: ${{ github.repository }}
+  
+jobs:
+  waiting_for_approval:
+    runs-on: ubuntu-latest
+    environment: approval
+    steps:
+      - name: approved by
+        run: echo "approved to ${{ github.repository }}"
+  K8s_Deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: K8s Deployment ...
+        run: echo "start deployment ..."
