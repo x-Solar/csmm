@@ -28,6 +28,7 @@ jobs:
   K8s_Deployment:
     needs: waiting_for_approval
     runs-on: ubuntu-latest
+    environment: approval
     steps:
       - name: K8s Deployment ...
         run: |
