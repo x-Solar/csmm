@@ -2,6 +2,10 @@ name: CI Staging CSMM
 
 on:
   workflow_dispatch:
+    inputs:
+      build_id:
+        description: 'Commit ID'
+        required: true
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
