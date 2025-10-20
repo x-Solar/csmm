@@ -2,6 +2,19 @@ name: CD Staging CSMM
 
 on:
   workflow_dispatch:
+    inputs:
+      build_id:
+        description: 'Image ID'
+        required: true
+        type: String
+      environment:
+        description: 'Target Environment'
+        required: true
+        default: staging
+        type: choice
+        options:
+        - staging
+        - production
 env:
   IMAGE_NAME: ${{ github.repository }}
   
@@ -13,6 +26,7 @@ jobs:
       - name: approved by
         run: echo "approved to ${{ github.repository }}"
   K8s_Deployment:
+    needs: waiting_for_approval
     runs-on: ubuntu-latest
     steps:
       - name: K8s Deployment ...
