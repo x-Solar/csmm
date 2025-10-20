@@ -30,4 +30,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: K8s Deployment ...
-        run: echo "start deployment ..."
+        run: |
+          echo "start deployment ..."
+          echo ${{ secrets.ACTION }}
