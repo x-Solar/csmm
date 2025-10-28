@@ -13,10 +13,9 @@ jobs:
         uses: trstringer/manual-approval@v1
         with:
           secret: ${{ github.token }}
-          approvers: "solarboro, soalr"
+          approvers: "solarboro"
           minimum-approvals: 1
           issue-title: "first approval"
-          issue-body: ${{ vars.issue_body }}
         
   waiting_for_approval:
     runs-on: ubuntu-latest
