@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
 env:
   IMAGE_NAME: ${{ github.repository }}
-  
+permissions:
+  issues: write
 jobs:
   trstringer:
     runs-on: ubuntu-latest
