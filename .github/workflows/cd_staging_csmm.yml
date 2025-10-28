@@ -19,8 +19,30 @@ env:
   IMAGE_NAME: ${{ github.repository }}
   
 jobs:
+  tech-approval:
+    runs-on: ubuntu-latest
+    environment: tech-approval-gate
+    steps:
+      - name: Technology approval received
+        run: echo "技术负责人已批准"
+
+  security-approval:
+    runs-on: ubuntu-latest
+    environment: security-approval-gate  
+    steps:
+      - name: Security approval received
+        run: echo "安全负责人已批准"
+
+  product-approval:
+    runs-on: ubuntu-latest
+    environment: product-approval-gate
+    steps:
+      - name: Product approval received
+        run: echo "产品负责人已批准"
+        
   waiting_for_approval:
     runs-on: ubuntu-latest
+    needs: [tech-approval, security-approval, product-approval]
     environment: approval
     steps:
       - name: approved by
