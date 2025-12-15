@@ -1,6 +1,9 @@
 name: CD Staging CSMM
 
 on:
+  workflow_run:
+    workflows: ["Staging Build"]
+    types: [completed]
   workflow_dispatch:
 env:
   IMAGE_NAME: ${{ github.repository }}
