@@ -1,4 +1,4 @@
-name: CI Staging CSMM
+name: Staging Build
 
 on:
   workflow_dispatch:
