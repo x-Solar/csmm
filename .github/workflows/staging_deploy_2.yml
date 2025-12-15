@@ -18,7 +18,14 @@ jobs:
           echo '$ARTIFACT_ID build compelted '
           echo '${{ env.ARTIFACT_ID}} build compelted '
      
-
+          echo "name" ${{ github.event.workflow_run.namne }}
+          echo "id" ${{ github.event.workflow_run.id }}
+          echo "conclusion" ${{ github.event.workflow_run.conclusion }}
+          echo "status" ${{ github.event.workflow_run.status }}
+          echo "actor login" ${{ github.event.workflow_run.actor.login }}
+          echo "head_sha" ${{ github.event.workflow_run.head_sha }}
+          echo "head_branch" ${{ github.event.workflow_run.head_branch}}
+          echo "head_repository.full_name" ${{ github.event.workflow_run.head_repository.full_name }}
 
 
 
