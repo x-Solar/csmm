@@ -22,7 +22,7 @@ jobs:
         
       - name: Raise PR
         env:
-          GH_TOKEN: ${{ secrest.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh pr create --base main --head "feature/gha" --title "this is title" --body "this is body" 
           
