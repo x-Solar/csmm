@@ -2,6 +2,7 @@ name: Staging Deploy2
 run-name:  "ArtifactID: ${{ github.run_id }}"
 
 on:
+  workflow_dispatch:
   workflow_run:
     workflows: ["Staging Build2"]
     types: [completed]
