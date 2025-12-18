@@ -2,6 +2,8 @@ name: Staging Deploy2
 run-name:  "ArtifactID: ${{ github.run_id }}"
 
 on:
+  workflow_dispatch:
+  
   workflow_run:
     workflows: ["Staging Build2"]
     types: [completed]
@@ -11,7 +13,19 @@ env:
 jobs:
   Deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        
+      - name: Raise PR
+        env:
+          GH_TOKEN: ${{ secrest.GITHUB_TOKEN }}
+        run: |
+          gh pr create --base main --head "feature/gha" --title "this is title" --body "this is body" 
+          
       - name: echo
         run: |
           echo '${{ github.event.workflow_run.id }} build compelted '
