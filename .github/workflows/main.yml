@@ -17,7 +17,7 @@ jobs:
       - name: echo
         run: |
           echo ' build compelted '
-          [ "True" != "${{ github.event.inputs.status_code }}" ] && exist 1
+          [ "true" != "${{ github.event.inputs.status_code }}" ] && exist 1
      
 
 
