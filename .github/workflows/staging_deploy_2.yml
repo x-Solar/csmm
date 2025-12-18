@@ -27,6 +27,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          echo `date`
           #gh pr create --base main --head "feature/gha" --title "this is title" --body "this is body" 
           echo "PR_NUMBER=101" >> $GITHUB_OUTPUT
           
@@ -51,6 +52,7 @@ jobs:
     steps:
       - name: Deploy
         run: |
+          echo `date`
           echo "PR: ${{needs.RaisePR.outputs.PR_NUMBER }}"
 
 
@@ -59,6 +61,7 @@ jobs:
     steps:
       - name: show
         run: |
+          echo `date`
           echo "here is uplaod completed"
 
 
