@@ -1,0 +1,31 @@
+name: T on Approval
+
+
+on:
+  #  workflow_run:
+  #    workflows: ["Staging Build"]
+  #    types: [completed]
+  workflow_dispatch:
+
+jobs:
+  RaisePRToMaster:
+    runs-on: ubuntu-latest
+    steps:
+      - name: RaisePRToMaster
+        run: echo checkout pr
+  PreCheckBeforeDeployment:
+    needs: [ RaisePRToMaster ]
+    environment: approval
+    runs-on: ubuntu-latest
+    steps:
+      - name: PreCheckBeforeDeployment
+        run: echo PreCheckBeforeDeployment
+
+  UpdateVersion:
+    needs: [ RaisePRToMaster, PreCheckBeforeDeployment ]
+    environment: approval
+    runs-on: ubuntu-latest
+    steps:
+      - name: UpdateVersion
+        run: echo UpdateVersion
+
