@@ -1,0 +1,13 @@
+name: FlowA2602102
+on:
+  workflow_run:
+    workflows: ["FlowA2602101"]
+    types: completed
+
+jobs:
+  RaisePRToMaster:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: RaisePR
+        run: echo Rase PR
