@@ -1,0 +1,28 @@
+name: FlowA2602101
+on:
+  workflow_dispatch:
+
+jobs:
+  RaisePRToMaster:
+   runs-on: ubuntu-latest
+   steps:
+     - name: RaisePR
+       run: echo Rase PR
+  CheckPR:
+   runs-on: ubuntu-latest
+   steps:
+     - name: CheckPR
+       run: echo Check PR
+
+
+
+
+
+
+
+
+
+
+
+
+
